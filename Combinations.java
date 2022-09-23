@@ -49,7 +49,7 @@ public class Combinations{
 	            for (int elem = 0; elem < mutliNum.size(); elem++) {
 	            	desiredSum.add(mutliNum.get(elem));
 	            }
-	            //appending those indexes to the output array
+	            //appending those indexes to the new array
 	            ansArray.add(desiredSum);
 	         }
 	        }	
