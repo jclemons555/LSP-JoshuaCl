@@ -1,5 +1,7 @@
 package org.howard.edu.lsp.assignment4.implementation;
-
+/**
+ * @author joshuaclemons 02914187
+ */
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -45,15 +47,32 @@ public class IntegerSet  {
 	 * Two sets are equal if they contain all of the same values in ANY order.
 	*/
 	public boolean equals(IntegerSet b) {
-		ArrayList<Integer> Listb = b.getSet();
+	      
+	       ArrayList<Integer> set2=b.getSet();
+	         
+	       if(set.size()!=set2.size()) {
+	           return false;
+	       }
+	         
+	       ArrayList<Integer> temp1=set;
+	         
+	       ArrayList<Integer> temp2=set2;
+	         
+	       Collections.sort(temp1);
+	       Collections.sort(temp2);
+	         
+	       for(int i=0;i<temp1.size();i++) {
+	           if(temp1.get(i)!=temp2.get(i)) {
+	               return false;
+	           }
+	       }
+	         
+	       return true;
+	      
+	   }
+
+
 	
-		if (set.size() == Listb.size()){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}; 
 	/**
 	 * 
 	 * @param value is an integer
