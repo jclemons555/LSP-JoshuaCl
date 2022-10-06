@@ -20,7 +20,7 @@ public class Driver {
 		
 		System.out.println("This is me trying to add the same number (1) to the set to see if it duplicates");
 		set1.add(1);
-		System.out.println("Value of Set1 is:" + set1.toString());
+		System.out.println("Value of Set1 is:" + set1.toString()); //testing toString
 		System.out.println("---------");
 		
 		IntegerSet set2 = new IntegerSet();
