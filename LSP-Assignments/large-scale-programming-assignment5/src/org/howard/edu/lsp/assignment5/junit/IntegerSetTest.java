@@ -1,13 +1,12 @@
-package org.howard.edu.lsp.assignment5.junit;
-/**
- * @author joshuaclemons 02914187
- */
-import org.howard.edu.lsp.assignment5.implementation.IntegerSet;
-import org.howard.edu.lsp.assignmen5.implementation.IntegerSetException;
+package org.howard.edu.assignment5.junit;
+
+import org.howard.edu.lsp.assignment4.implementation.IntegerSet;
+import org.howard.edu.lsp.assignment4.implementation.IntegerSetException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.Assert;
 
 public class IntegerSetTest {
 	@Test
@@ -28,9 +27,16 @@ public class IntegerSetTest {
 		set1.add(1);
 		set1.add(2);
 		set1.add(3);
+		
 		//test that the length of set 1 is equal to 3
 		assertEquals(3, set1.length());
 		assertEquals("[1, 2, 3]", set1.toString());
+		set1.clear();
+		//test length for empty set
+		IntegerSet set2 = new IntegerSet();
+		set2.add(1);
+		set2.clear();
+		assertEquals(0, set2.length());
 	}
 	
 	@Test
@@ -51,6 +57,13 @@ public class IntegerSetTest {
 		set1.add(4);
 		value = set1.equals(set2);
 		assertEquals(false, value);
+		//Test for two empty sets
+		IntegerSet set3 = new IntegerSet();
+		IntegerSet set4 = new IntegerSet();
+		Assert.assertTrue(set3.equals(set4));
+		//Test for one of two sets are empty
+		set4.add(4);
+		Assert.assertFalse(set3.equals(set4));
 	}
 	
 	@Test
@@ -66,6 +79,10 @@ public class IntegerSetTest {
 		//Test for an integer (5) that is not in the integer set
 		value = set1.contains(5);
 		assertEquals(false, value);
+		//Test for an integer (1) that is not in the empty set
+		set1.clear();
+		boolean value2 = set1.contains(1);
+		assertEquals(false, value2);
 	}
 	
 	@Test
@@ -102,10 +119,27 @@ public class IntegerSetTest {
 		set1.add(2);
 		set1.add(3);
 		set1.smallest();
+		IntegerSet set2 = new IntegerSet();
+		set2.add(3);
+		set2.add(4);
+		set2.add(5);
+		set2.smallest();
+		IntegerSet set3 = new IntegerSet();
+		set3.add(3);
+		set3.add(6);
+		set3.add(9);
+		set3.smallest();
 		//test if 1 is the smallest in an integer set in which 1 is the smallest 
 		assertEquals(1, set1.smallest());
 		//test if 3 is the smallest in an integer set in which 1 is the smallest 
 		assertFalse(set1.smallest() == 3);
+		try {
+			// testing smallest when the smallest integer is a positive integer.
+			assertEquals(1, set1.smallest());
+		} catch (IntegerSetException e) {
+			e.printStackTrace();
+		}
+		
 		
 	}
 	
@@ -162,6 +196,12 @@ public class IntegerSetTest {
 		assertFalse(set1.contains(4));
 		//test that the output of set1 after 4 is removed, is equal to the output of set 2
 		assertTrue(set1.equals(expected));
+		//test that all integers are removed from set, set is now empty
+		set1.remove(3);
+		set1.remove(2);
+		set1.remove(1);
+		assertEquals(0, set1.length());
+		
 		
 	}
 	
