@@ -1,5 +1,7 @@
 package org.howard.edu.lsp.assignment5.junit;
-
+/**
+ * @author joshuaclemons 02914187
+ */
 import org.howard.edu.lsp.assignment5.implementation.IntegerSet;
 import org.howard.edu.lsp.assignmen5.implementation.IntegerSetException;
 
