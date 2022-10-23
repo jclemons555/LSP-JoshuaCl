@@ -1,4 +1,4 @@
-package org.howard.edu.assignment5.junit;
+package org.howard.edu.lsp.assignment5.junit;
 /**
  * @author joshuaclemons 02914187
  */
