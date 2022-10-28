@@ -2,9 +2,6 @@ package org.howard.edu.lsp.midterm.problem1;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simplified electronic voting machine with a list of candidates and their votes.
- */
 public class votingMachine {
 	
 	private List<String> people = new ArrayList<String>();
