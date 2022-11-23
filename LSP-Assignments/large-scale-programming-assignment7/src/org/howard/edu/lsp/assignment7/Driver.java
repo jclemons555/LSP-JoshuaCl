@@ -62,9 +62,9 @@ class Driver {
 	
 	}
 	
-	@Test
+		@Test
 	@DisplayName("Test cases for when both strategies (TotalAverageStrategy & DroppedAverageStrategy) throw an EmptyListException")
-	public void testCompute_Throws_EmptyListException_1() {
+	public void testEmptyListException() {
 		AverageContext average = new AverageContext();
 		List<Integer> gradeset = new ArrayList<Integer>();
 		
